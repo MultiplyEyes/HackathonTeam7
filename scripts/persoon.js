@@ -2,7 +2,8 @@ let url = new URLSearchParams(window.location.search);
 let id = url.get('id');
 
 var baseURL = "https://fdnd.directus.app/items/women_in_tech";
-var endPoint = "?filter={%22id%22:"+id+"}";
+// var endPoint = "?filter={%22id%22:"+id+"}";
+var endPoint = "/" + id;
 var apiURL = baseURL + endPoint;
 var response = await fetch(apiURL);
 var lookForMyData = await response.json();

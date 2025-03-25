@@ -1,3 +1,9 @@
+var lijst = document.querySelector("#demo");
+var baseURL = "https://fdnd.directus.app/items/women_in_tech";
+var response = await fetch(baseURL);
+var womenData = await response.json();
+var women = womenData.data;
+
 const state = { 
     inline: {
         change: undefined,
@@ -32,17 +38,18 @@ demo.onscrollsnapchanging = function(event) {
 
 // Infinite scrolling logic
 const loadMoreItems = () => {
-    for (let i = 0; i < 10; i++) {
-        const li = document.createElement('li');
-        const img = document.createElement('img');
-        img.src = './images/duck.jpg';
-        img.alt = `Image ${demo.children.length + 1}`;
-        const h3 = document.createElement('h3');
-        h3.textContent = `Title ${demo.children.length + 1}`;
-        li.appendChild(img);
-        li.appendChild(h3);
-        demo.appendChild(li);
-    }
+    women.forEach(woman => {
+        // let womenHTML = `<p>${woman.name}</p>`
+        let womenHTML = `
+                        <li>
+                            <a href=persoon.html?id=${woman.id}>
+                                <img src=" https://fdnd.directus.app/assets/${woman.image}" alt="Image 1">
+                                <h3>${woman.name}</h3>
+                            </a>
+                        </li>
+                        `
+        lijst.insertAdjacentHTML("beforeend",womenHTML)
+    });
 };
 
 demo.addEventListener('scroll', () => {

@@ -1,3 +1,8 @@
+:root {
+    --color-header-background: #19130e;
+    --color-ofwhite: #f7f8f7;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,17 +11,24 @@
 body {
     display: grid;
     grid-template-columns: 1fr 10fr;
-    background-color: coral;
+
+    background-color: var(--color-ofwhite);
 }
 
 header {
     grid-column: 1;
     padding: 1rem;
-    background-color: white;
+    background-color: var(--color-header-background);
+    box-shadow: #19130e 0 0 10px;
 
     top: 0;
     bottom: 0;
     left: 0;
+
+    h1 {
+        display: flex;
+        color: var(--color-ofwhite);
+    }
 
 }
 
@@ -25,6 +37,7 @@ li {
 }
 
 main {
+    display: grid;
     grid-column: 2;
     padding: 1rem;
 
@@ -34,44 +47,106 @@ main {
 
     ul {
         container-type: inline-size;
-        container-name: scrolling;
+        container-name: scrolling scrolling2;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1rem;
         overflow-y: clip;
+    }
 
-        li {
-            img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
+    ul li {
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    }
+
+    @media (min-width: 978px) {
+        ul li:nth-of-type(2n+1) {
+            transform: translateY(calc(-100cqh));
+            flex-direction: column-reverse;
+            animation: adjust-position linear forwards;
+            animation-timeline: scroll(root block);
+        }
+    
+        @keyframes adjust-position {
+            from {
+                transform: translateY(calc(-440cqh));
+            }
+            to {
+                transform: translateY(calc(440cqh));
             }
         }
-    
-
-
-
+        
     }
 
-@container scrolling (min-width: 600px) {
-
-    
-    li:nth-of-type(2n+1) {
-        transform: translateY(calc(-100cqh));
-        flex-direction: column-reverse;
-        animation: adjust-position linear forwards;
-        animation-timeline: scroll(root block);
-    }
-
-    @keyframes adjust-position {
-        /* Start position: shift entire column up, but not so that it goes out of view */
-        from {
-            transform: translateY(calc(-430cqh));
+    @media (max-width: 978px) {
+        ul li:nth-of-type(3n+1), ul li:nth-of-type(3n+3) {
+            transform: translateY(calc(-100cqh));
+            flex-direction: column-reverse;
+            animation: adjust-position linear forwards;
+            animation-timeline: scroll(root block);
         }
     
-        /* End position: shift entire column down, but not so that it goes out of view */
-        to {
-            transform: translateY(calc(430cqh));
+        @keyframes adjust-position {
+            from {
+                transform: translateY(calc(-740cqh));
+            }
+            to {
+                transform: translateY(calc(740cqh));
+            }
         }
+        
     }
-  }
+
+    @media (max-width: 761px) {
+        ul li:nth-of-type(3n+1), ul li:nth-of-type(3n+3) {
+            transform: translateY(0);
+            flex-direction: column-reverse;
+            animation: none;
+            animation-timeline: none;
+        }
+        ul li:nth-of-type(2n+1) {
+            transform: translateY(calc(-100cqh));
+            flex-direction: column-reverse;
+            animation: adjust-position linear forwards;
+            animation-timeline: scroll(root block);
+        }
+    
+        @keyframes adjust-position {
+            from {
+                transform: translateY(calc(-1140cqh));
+            }
+            to {
+                transform: translateY(calc(1140cqh));
+            }
+        }
+        
+    }
+
+    @media (max-width: 545px) {
+        ul li:nth-of-type(3n+1), ul li:nth-of-type(3n+3) {
+            transform: translateY(0);
+            flex-direction: column-reverse;
+            animation: none;
+            animation-timeline: none;
+        }
+        ul li:nth-of-type(2n+1) {
+            transform: translateY(0);
+            flex-direction: column-reverse;
+            animation: none;
+            animation-timeline: none;
+        }
+
+        
+    }
+
+    
+
+
+
+
+
+
+

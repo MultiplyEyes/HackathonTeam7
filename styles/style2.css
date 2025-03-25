@@ -1,0 +1,92 @@
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+li {
+  list-style: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@layer demo {
+  li {
+    box-shadow: 
+      inset 0 0 0 2px var(--inline, transparent),
+      inset 0 0 0 4px var(--block, transparent);
+
+      img {
+        width: 100%;
+      }
+  }
+  
+  .snap-changing-inline {
+    outline: 2px dashed red;
+    outline-offset: 2px;
+  }
+  
+  .snap-changing-block {
+    outline: 2px dashed blue;
+    outline-offset: 2px;
+  }
+  
+  .snapped-inline {
+    --inline: red;
+  }
+  
+  .snapped-block {
+    --block: blue;
+  }
+
+}
+
+@layer demo.support {
+  section {
+    display: grid;
+
+    gap: 1rem;
+
+    width: 100%;
+    height: 100vh;
+  }
+  
+  ul {
+    container-type: scroll-state;
+    scroll-snap-type: both mandatory;
+    scroll-snap-stop: always;
+    overflow: auto;
+    display: grid;
+    grid-auto-flow: dense; /* Allow grid to expand both horizontally and vertically */
+    grid-template-columns: repeat(50, 40vw); /* Set column width */
+    grid-template-rows: repeat(auto-fill, 40vw); /* Set row height */
+    gap: 1rem;
+    padding: 1rem;
+    
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    background: black;
+    border: 1px solid black;
+  }
+  
+  li {
+    scroll-snap-align: center;
+    background: black;
+    box-shadow: black 0 0 0 1px;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    
+    ul {
+      background: black;
+    }
+    
+    li {
+      background: wheat;
+    }
+  }
+  
+  footer {
+    text-align: center;
+  }
+}

@@ -29,23 +29,19 @@ let womenHTML = `
                 <p>${woman.tagline}</p>
                 <h4>Period</h4>
                 <p>${woman.period}</p>
-                <h4>Website</h4>
                 ` +
-                (woman.website ? `<a href=${woman.website}>Website</a>` : '') + 
+                (woman.website ? `<h4>Website</h4> <a href=${woman.website}>Website</a>` : '') + 
                 `
                 <h4>Country</h4>
                 <p>${woman.country}</p>
-                <h4>Github</h4>
                 ` +
-                (woman.github ? `<a href=${woman.github}>Github</a>` : '') + 
+                (woman.github ? `<h4>Github</h4> <a href=${woman.github}>Github</a>` : '') + 
                 `
-                <h4>Codepen</h4>
                 ` +
-                (woman.codepen ? `<a href=${woman.codepen}>Codepen</a>` : '') + 
+                (woman.codepen ? `<h4>Codepen</h4> <a href=${woman.codepen}>Codepen</a>` : '') + 
                 `
-                <h4>Work</h4>
                 ` +
-                (woman.work ? `<p>${woman.work}</p>` : '') + 
+                (woman.work ? `<h4>Work</h4> <p>${woman.work}</p>` : '') + 
                 `
         </div>
 `;

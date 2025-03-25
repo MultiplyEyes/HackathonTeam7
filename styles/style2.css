@@ -1,16 +1,24 @@
-li {
-  list-style: none;
-}
-/* class="scroller" id="demo" */
-
 @import "https://unpkg.com/open-props" layer(design.system);
 @import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
 
+li {
+  list-style: none;
+}
 
-  .items {
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@layer demo {
+  li {
     box-shadow: 
       inset 0 0 0 2px var(--inline, transparent),
       inset 0 0 0 4px var(--block, transparent);
+
+      img {
+        width: 100%;
+      }
   }
   
   .snap-changing-inline {
@@ -31,52 +39,53 @@ li {
     --block: blue;
   }
 
+}
 
-  body {
+@layer demo.support {
+  section {
     display: grid;
-    place-content: center;
-    padding: var(--size-5);
-    gap: var(--size-5);
+
+    gap: 1rem;
+
+    width: 100%;
+    height: 100vh;
   }
   
   ul {
-    overflow: auto;
+    container-type: scroll-state;
     scroll-snap-type: both mandatory;
+    scroll-snap-stop: always;
+    overflow: auto;
     display: grid;
-    grid-template-columns: repeat(5, 10rem);
-    grid-auto-rows: 10rem;
-    gap: var(--size-3);
-    padding: var(--size-9);
+    grid-template-columns: repeat(5, 40vw);
+    grid-auto-rows: 40vw;
+    gap: 1rem;
+    padding: 1rem;
     
     overscroll-behavior: contain;
     scroll-behavior: smooth;
-    
-    inline-size: calc(3 * var(--size-content-1) + (5 * var(--size-3)));
-    block-size: var(--size-content-3);
-    background: var(--surface-2);
-    border: 1px solid var(--surface-3);
+    background: black;
+    border: 1px solid black;
   }
   
   li {
     scroll-snap-align: center;
-    background: var(--surface-1);
-    box-shadow: var(--shadow-3);
+    background: black;
+    box-shadow: black 0 0 0 1px;
   }
   
   @media (prefers-color-scheme: dark) {
-    html {
-      background: var(--surface-2);  
-    }
     
-    .scroller {
-      background: var(--surface-1);
+    ul {
+      background: black;
     }
     
     li {
-      background: var(--surface-3);
+      background: wheat;
     }
   }
   
   footer {
     text-align: center;
   }
+}

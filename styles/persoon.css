@@ -9,6 +9,8 @@ body {
 
 #picture{
     display: flex;
+    background-color: white;
+    border-radius: 5px;
     div{
         padding-top: 50px;
         width: 10vw;
@@ -18,25 +20,25 @@ body {
     }
 }
 
-figure{
-    width: 90%;
-}
-
 img{
     width: 100%;
     height: fit-content;
+    border-top-left-radius: 5px;
 }
 
 #showcase{
-    max-width: 400px;
+    max-width: 350px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+
     
     p, a{
+        padding-left: 15px;
         display: block;
         height: fit-content;
         background-color: white;
-        margin-bottom: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
     }
 }

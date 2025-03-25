@@ -1,6 +1,21 @@
+/* ///////////////////// */
+/* 🤠🤠🤠 FONTFACES 🤠🤠🤠 */
+/* ///////////////////// */
+
+
+/* //////////////////////// */
+/* 🥡🥡🥡 CSS REMEDIES 🥡🥡🥡 */
+/* //////////////////////// */
+
 * {
     margin: 0;
     padding: 0;
+    list-style-type: none;
+}
+
+:root {
+    /* COLOURS */
+    --grey: grey;
 }
 
 body {
@@ -18,6 +33,10 @@ header {
 
 li {
     list-style: none;
+
+    width: auto;
+    height: auto;
+
 }
 
 main {

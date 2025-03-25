@@ -36,19 +36,29 @@ demo.onscrollsnapchanging = function(event) {
     state.block.changing = event.snapTargetBlock;
 };
 
+// Function to shuffle an array
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
+
 // Infinite scrolling logic
 const loadMoreItems = () => {
-    women.forEach(woman => {
-        // let womenHTML = `<p>${woman.name}</p>`
+    // Shuffle the women array before appending
+    const shuffledWomen = shuffleArray([...women]);
+    shuffledWomen.forEach(woman => {
         let womenHTML = `
                         <li>
                             <a href=persoon.html?id=${woman.id}>
-                                <img src=" https://fdnd.directus.app/assets/${woman.image}" alt="Image 1">
+                                <img src="https://fdnd.directus.app/assets/${woman.image}" alt="Image 1">
                                 <h3>${woman.name}</h3>
                             </a>
                         </li>
-                        `
-        lijst.insertAdjacentHTML("beforeend",womenHTML)
+                        `;
+        lijst.insertAdjacentHTML("beforeend",womenHTML);
     });
 };
 

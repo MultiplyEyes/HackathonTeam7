@@ -20,7 +20,6 @@
 }
 /* 🔗 SOURCE: https://fonts.google.com/specimen/Syne+Mono */
 
-
 @import "https://unpkg.com/open-props" layer(design.system);
 @import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
 
@@ -33,6 +32,7 @@
   --color-ofwhite: #f7f8f7;
 
   --green-brown: #674824;
+  --accent-color: pink;
   --light-color: #F7F2EC;
   --dark-color: black;
   --shadow-card: rgb(75, 51, 23, 0.24);
@@ -55,6 +55,40 @@
 /* /////////////////////////// */
 /* 🫰🏼🫰🏼🫰🏼 TEXT FORMATTING 🫰🏼🫰🏼🫰🏼 */
 /* /////////////////////////// */
+
+
+h1 {
+  font-family: var(--wasa);
+  color: var(--green-brown);
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  color: var(--green-brown);
+  text-decoration: none;
+
+  &:visited {
+    color: var(--green-brown);
+    text-decoration: none;
+  }
+
+  /* &:hover {
+
+  }
+
+  &:active {
+
+  } */
+}
+
+
+:root {
+  --dark-color: black;
+}
+=======
 
 
 
@@ -88,14 +122,14 @@ header {
   border-right: .1rem solid var(--green-brown) ;
 
   position: absolute;
-  z-index: 10;
+  z-index: 11;
   bottom: 0%;
   left: 0%;
 }
 
 .menu {
   width: 100%;
-  height: 97%;
+  height: 97%;  
 
   display: flex;
   flex-direction: column;
@@ -103,18 +137,25 @@ header {
   align-items: center;
   align-self: center;
   /* margin: .3rem; */
+
+  div {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
 }
 
 .menu article {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
+}
+
+svg {
+  color: var(--green-brown);
 }
 
 main {
-li {
-  list-style: none;
-}
 
 @layer demo {
   li {
@@ -159,12 +200,10 @@ li {
     
     overscroll-behavior: contain;
     scroll-behavior: smooth;
-    background: var(--dark-color);
     border: 1px solid var(--dark-color);
 
     >li {
       scroll-snap-align: center;
-      background: var(--dark-color);
       box-shadow: var(--dark-color) 0 0 0 1px;
     }
     >li:last-of-type{
@@ -222,7 +261,6 @@ li {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  /* filter: grayscale(100%); */
 
   border: .1rem solid var(--green-brown);
   border-radius: .6rem;
@@ -233,16 +271,13 @@ li {
       z-index: 2;
       font-family: var(--gt-haptic);
       color: var(--green-brown);
+      width: 87%;
+      align-self: center;
   }
 
-  li.name {
-      flex-grow: 1;
-      font-family: var(--wasa);
-      color: var(--green-brown);
-  }
-
-  li.name h1 {
+  li.name h2 {
       transform: rotate(-3deg);
+      font-family: var(--wasa);
   }
 
   li.color {
@@ -261,8 +296,6 @@ li {
 
   li.period {
       font-family: var(--syne-mono);
-
-      display: none;
   }
 
   li:nth-of-type(n + 3) {
@@ -276,52 +309,30 @@ li {
 
       position: absolute;
       z-index: 1;
-      left: 0%;
-      bottom: 0%;
       border-radius: 0 0 .5rem .5rem;
 
       background-image: 
       linear-gradient(
           transparent 0%,
-          pink 80%
+          var(--accent-color) 80%
       );
 
       transition: transform 300ms ease-in-out;
   }
-
-  /* &:hover {
-      transform: scale(1.06); */
-      /* translateX(1rem) translateY(1rem) */
-      /* transition: transform 300ms ease-in-out; */
-
-      /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-      /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
-      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-      /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
-      /* box-shadow: var(--shadow-card) 0px 3px 8px;
-  } */
-
-  /* &:hover li:nth-of-type(n + 3) {
-      display: block;
-  } */
-/* 
-  &:hover li.period {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      p {
-          width: 80%;
-      }
-  } */
 }
-}
+  
+li.name {
+  flex-grow: 1;
+  font-family: var(--wasa);
+  color: var(--green-brown);
+  padding: .8rem 0 0 0;
 }
 
 .snapped {
   transform: scale(1.3);
   /* translateX(1rem) translateY(1rem) */
   transition: transform 300ms ease-in-out;
+  z-index: 10;
 
 
   /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
@@ -345,8 +356,17 @@ li {
   li:nth-of-type(n + 3) {
     display: block;
   }
-}
 
+
+  li.period {
+    display: flex;
+    padding: 0 0 1rem 0;
+  }
+
+}
+}
+}
+=======
 li:has(+ li.snapped) {
   padding-right: 10px;
 }
@@ -354,4 +374,5 @@ li:has(+ li.snapped) {
 li.snapped + li {
   padding-left: 10px;
 }
+
 

@@ -53,7 +53,7 @@ const loadMoreItems = () => {
         let womenHTML = `
                         <li>
                             <a href=persoon.html?id=${woman.id}>
-                                <ul class="card">
+                                <ul class="card" style="background-image: url('https://fdnd.directus.app/assets/${woman.image}');">
                                     <li class="name">
                                         <h1>Name</h1>
                                     </li>
@@ -87,3 +87,4 @@ demo.addEventListener('scroll', () => {
 
 // Initial load
 loadMoreItems();
+

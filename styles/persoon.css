@@ -1,10 +1,13 @@
+
+
 * {
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: coral;
+ body {
+    --hue: calc(sibling-index() * 50);
+    background-color: oklch(70% 70% var(--hue));
 }
 
 #picture{

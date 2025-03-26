@@ -13,12 +13,13 @@ var womenData = await response.json();
 var woman = womenData.data;
 
 let womenHTML = `
+        <section style="--sibling-index:${id}">
         <header>
                 <h1>${woman.name}</h1>
         </header>
         <div id="picture">
                 <figure>
-                        <img src=" https://fdnd.directus.app/assets/${woman.image}" alt="Image 1">
+                        <img src="https://fdnd.directus.app/assets/${woman.image}" alt="Image 1">
                 </figure>
                 <div>
                         <h2>${woman.short_name}</h2>
@@ -44,5 +45,6 @@ let womenHTML = `
                 (woman.work ? `<h4>Work</h4> <p>${woman.work}</p>` : '') + 
                 `
         </div>
+        </section>
 `;
 allWom.insertAdjacentHTML("beforeend",womenHTML);

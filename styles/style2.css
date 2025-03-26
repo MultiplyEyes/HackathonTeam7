@@ -12,13 +12,13 @@
   font-family: "GT Haptic" ;
   src: url(./font/Koba\ Furniture\ Haptik\ Font.otf);
 }
-/* 🔗 SOURCE: */
+/* 🔗 SOURCE: https://www.grillitype.com/typeface/gt-haptik */
 
 @font-face {
   font-family: "Syne mono" ;
   src: url(./font/SyneMono-Regular.ttf);
 }
-/* 🔗 SOURCE: */
+/* 🔗 SOURCE: https://fonts.google.com/specimen/Syne+Mono */
 
 
 @import "https://unpkg.com/open-props" layer(design.system);

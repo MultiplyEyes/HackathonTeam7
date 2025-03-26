@@ -49,16 +49,22 @@ body {
     grid-template-columns: 1fr 10fr;
     font-family: var(--gt-haptic);
 
+    position: relative;
     background-color: #F7F2EC;
 }
-
 
 header {
     width: 8vw;
     max-width: 10vw;
     height: 100vh;
     border-right: .1rem solid var(--green-brown) ;
+
+    position: absolute;
+    z-index: 10;
+    bottom: 0%;
+    left: 0%;
 }
+
 .menu {
     width: 100%;
     height: 100%;
@@ -68,8 +74,6 @@ header {
     align-content: space-between;
     /* margin: .3rem; */
 }
-main {
-
 
 main {
     display: grid;
@@ -298,7 +302,7 @@ main {
 
     
 
-}
+
 
 
 

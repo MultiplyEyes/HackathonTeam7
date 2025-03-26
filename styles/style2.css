@@ -1,3 +1,6 @@
+/* ///////////////////// */
+/* 🎞️🎞️🎞️ FONTFACES 🎞️🎞️🎞️ */
+/* ///////////////////// */
 
 @font-face {
   font-family: "Wasa" ;
@@ -11,46 +14,106 @@
 }
 /* 🔗 SOURCE: */
 
-
 @font-face {
   font-family: "Syne mono" ;
   src: url(./font/SyneMono-Regular.ttf);
 }
 /* 🔗 SOURCE: */
 
+
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+/* //////////////// */
+/* 🤠🤠🤠 ROOT 🤠🤠🤠 */
+/* //////////////// */
+
 :root {
-  --dark-color: black;
-}
+  --color-header-background: #19130e;
+  --color-ofwhite: #f7f8f7;
 
+  --green-brown: #674824;
+  --light-color: #F7F2EC;
+  --shadow-card: rgb(75, 51, 23, 0.24);
 
-body {
-  margin: 0;
-}
+  --padding-card: .8rem 1rem;
 
-header {
-  width: 8vw;
-  max-width: 10vw;
-  height: 100vh;
-  border-right: .1rem solid var(--green-brown) ;
-}
-.menu {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: space-between;
-  /* margin: .3rem; */
-}
-
-main {
-li {
-  list-style: none;
+  --wasa: "Wasa", Arial, Helvetica, sans-serif;
+  --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
+  --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
 }
 
 * {
   padding: 0;
   margin: 0;
+  list-style: none;
+}
+
+/* /////////////////////////// */
+/* 🫰🏼🫰🏼🫰🏼 TEXT FORMATTING 🫰🏼🫰🏼🫰🏼 */
+/* /////////////////////////// */
+=======
+:root {
+  --dark-color: black;
+}
+
+
+/* //////////////// */
+/* 🤎🤎🤎 BODY 🤎🤎🤎 */
+/* //////////////// */
+
+body {
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  font-family: var(--gt-haptic);
+
+  position: relative;
+  background-color: var(--light-color);
+}
+
+/* ////////////////// */
+/* 🌶️🌶️🌶️ HEADER 🌶️🌶️🌶️ */
+/* ////////////////// */
+
+header {
+  display: grid;
+  /* justify-items: center; */
+  width: 8vw;
+  max-width: 10vw;
+  height: 100vh;
+
+  background-color: var(--light-color);
+  border-right: .1rem solid var(--green-brown) ;
+
+  position: absolute;
+  z-index: 10;
+  bottom: 0%;
+  left: 0%;
+}
+
+.menu {
+  width: 100%;
+  height: 97%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  /* margin: .3rem; */
+}
+
+.menu article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main {
+li {
+  list-style: none;
 }
 
 @layer demo {
@@ -100,7 +163,8 @@ li {
 
     gap: 1rem;
 
-    width: 100%;
+    /* width: 100%; */
+    width: 100vw;
     height: 100vh;
   
   
@@ -153,6 +217,10 @@ li {
   }
 }
 
+/* ///////////////// */
+/* 🎞️🎞️🎞️ CARDS 🎞️🎞️🎞️ */
+/* ///////////////// */
+
 .card {
   aspect-ratio: 2 / 3;
   width: 100%;
@@ -201,8 +269,8 @@ li {
   }
 
   li.color {
-      width: 100%;
-      height: 100%;
+      width: auto;
+      height: auto;
 
       position: absolute;
       z-index: 1;

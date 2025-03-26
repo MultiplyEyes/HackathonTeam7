@@ -29,24 +29,8 @@
 /* //////////////// */
 
 :root {
-<<<<<<< HEAD
-  --dark-color: black;
   --color-header-background: #19130e;
   --color-ofwhite: #f7f8f7;
-
-  /* --green-brown: #674824; */
-  --shadow-card: rgb(75, 51, 23, 0.24);
-
-  --padding-card: .8rem 1rem;
-
-  --wasa: "Wasa", Arial, Helvetica, sans-serif;
-  --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
-  --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
-}
-=======
-  --color-header-background: #19130e;
-  --color-ofwhite: #f7f8f7;
->>>>>>> b01484518c10c6630305d0b2a1397970723d4e71
 
   --green-brown: #674824;
   --light-color: #F7F2EC;
@@ -68,7 +52,7 @@
 /* /////////////////////////// */
 /* 🫰🏼🫰🏼🫰🏼 TEXT FORMATTING 🫰🏼🫰🏼🫰🏼 */
 /* /////////////////////////// */
-=======
+
 :root {
   --dark-color: black;
 }
@@ -210,15 +194,9 @@ li {
   }
 }
 
-<<<<<<< HEAD
-  
-
-
-=======
 /* ///////////////// */
 /* 🎞️🎞️🎞️ CARDS 🎞️🎞️🎞️ */
 /* ///////////////// */
->>>>>>> b01484518c10c6630305d0b2a1397970723d4e71
 
 .card {
   aspect-ratio: 2 / 3;

@@ -34,7 +34,7 @@ const loadMoreItems = (count = 10) => {
                             <a href=persoon.html?id=${woman.id}>
                                 <ul class="card" style="background-image: url('https://fdnd.directus.app/assets/${woman.image}');">
                                     <li class="name">
-                                        <h1>${woman.name}</h1>
+                                        <h2>${woman.name}</h2>
                                     </li>
                                     <li class="color">
                                     </li>

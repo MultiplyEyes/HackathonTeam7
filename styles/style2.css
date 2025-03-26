@@ -122,8 +122,8 @@ li {
     overflow: auto;
     display: grid;
     grid-auto-flow: dense; /* Allow grid to expand both horizontally and vertically */
-    grid-template-columns: repeat(50, 40vw); /* Set column width */
-    grid-template-rows: repeat(auto-fill, 40vw); /* Set row height */
+    grid-template-columns: repeat(50, 20vw); /* Set column width */
+    grid-template-rows: repeat(auto-fill, 30vw); /* Set row height */
     gap: 1rem;
     padding: 1rem;
     

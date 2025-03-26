@@ -18,9 +18,9 @@
 }
 /* 🔗 SOURCE: */
 
-@import "https://unpkg.com/open-props" layer(design.system);
-@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
-
+:root {
+  --dark-color: black;
+}
 
 
 body {
@@ -64,7 +64,7 @@ li {
       }
   }
   
-  .snap-changing-inline {
+  .snapped {
     transform: scale(1.06);
     /* translateX(1rem) translateY(1rem) */
     transition: transform 300ms ease-in-out;
@@ -84,24 +84,13 @@ li {
           width: 80%;
       }
 
-      li:nth-of-type(n + 3) {
-        display: block;
-    }
+
   }
-  }
-  
-  .snap-changing-block {
-    outline: 2px dashed blue;
-    outline-offset: 2px;
+  li:nth-of-type(n + 3) {
+    display: block;
+}
   }
   
-  .snapped-inline {
-    --inline: red;
-  }
-  
-  .snapped-block {
-    --block: blue;
-  }
 
 }
 
@@ -129,13 +118,13 @@ li {
     
     overscroll-behavior: contain;
     scroll-behavior: smooth;
-    background: black;
-    border: 1px solid black;
+    background: var(--dark-color);
+    border: 1px solid var(--dark-color);
 
     >li {
       scroll-snap-align: center;
-      background: black;
-      box-shadow: black 0 0 0 1px;
+      background: var(--dark-color);
+      box-shadow: var(--dark-color) 0 0 0 1px;
     }
     >li:last-of-type{
       scroll-snap-align: end;

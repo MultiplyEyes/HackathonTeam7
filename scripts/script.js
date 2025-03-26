@@ -4,36 +4,15 @@ var response = await fetch(baseURL);
 var womenData = await response.json();
 var women = womenData.data;
 
-const state = { 
-    inline: {
-        change: undefined,
-        changing: undefined,
-    },
-    block: {
-        change: undefined,
-        changing: undefined,
-    }
-};
 
 const demo = document.getElementById('demo');
 
-demo.onscrollsnapchanging = function(event) {
-    if (state.block.changing) {
-        state.block.changing.classList.remove('snap-changing-inline');
-    }
-    if (state.inline.changing) {
-        state.inline.changing.classList.remove('snap-changing-inline');
-    }
+// Add smooth scrolling CSS
+demo.style.scrollBehavior = 'smooth';
 
-    if (event.snapTargetInline) {
-        event.snapTargetInline.classList.add('snap-changing-inline');
-    }
-    if (event.snapTargetBlock) {
-        event.snapTargetBlock.classList.add('snap-changing-inline');
-    }
-    
-    state.inline.changing = event.snapTargetInline;
-    state.block.changing = event.snapTargetBlock;
+demo.onscrollsnapchange = event => {
+    demo.querySelector(':scope .snapped')?.classList.remove('snapped')
+    event.snapTargetInline.classList.add('snapped')
 };
 
 // Function to shuffle an array
@@ -46,9 +25,9 @@ const shuffleArray = (array) => {
 };
 
 // Infinite scrolling logic
-const loadMoreItems = () => {
+const loadMoreItems = (count = 10) => {
     // Shuffle the women array before appending
-    const shuffledWomen = shuffleArray([...women]);
+    const shuffledWomen = shuffleArray([...women]).slice(0, count);
     shuffledWomen.forEach(woman => {
         let womenHTML = `
                         <li>
@@ -85,6 +64,5 @@ demo.addEventListener('scroll', () => {
     }
 });
 
-// Initial load
-loadMoreItems();
-
+// Initial load with more items
+loadMoreItems(20);

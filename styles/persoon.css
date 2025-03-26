@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: "Wasa" ;
     src: url(./font/Wasa\ Variable\ Trial.ttf);
@@ -20,6 +22,7 @@
     --color-header-background: #19130e;
     --color-ofwhite: #f7f8f7;
   
+    --dark-color: black;
     --green-brown: #674824;
     --light-color: #F7F2EC;
     --shadow-card: rgb(75, 51, 23, 0.24);
@@ -29,6 +32,9 @@
     --wasa: "Wasa", Arial, Helvetica, sans-serif;
     --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
     --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
+
+    
+
 }
 
 * {
@@ -36,42 +42,85 @@
     padding: 0;
 }
 
-body {
-    background-color: coral;
+
+
+h1{
+    margin-top: 10px;
+    border: solid var(--green-brown);
+    border-bottom: var(--light-color);
 }
 
 #picture{
     display: flex;
-    background-color: white;
-    border-radius: 5px;
+    background-color: var(--light-color);
+    margin-bottom: 10px;
+    
+    border: solid var(--green-brown);
+    border-top: var(--light-color);
+
+    
+
     div{
         padding-top: 50px;
         width: 10vw;
+        background-color: var(--light-color);
+
+        
         h2{
             transform: rotate(90deg);
         }
     }
+
+    img{
+        width: 100%;
+        height: fit-content;
+    }
 }
 
-img{
-    width: 100%;
-    height: fit-content;
-    border-top-left-radius: 5px;
-}
 
 #showcase{
-    max-width: 350px;
+    margin: 0;
+
+    font-family: var(--gt-haptic);
+
+    position: relative;
+    background-color: var(--color-ofwhite);
+
+    color: var(--green-brown);
+
+    display: grid;
+    grid-area: 1/1;
+
+
+
+section{
+    --hue: calc(var(--sibling-index) * 5); 
+    background-color: oklch(70% 70% var(--hue));
+    max-width: 100%;
+    padding: 0 30vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
 
-    
     p, a{
+        margin-bottom: 15px;
+    }
+
+    h1{
+        background-color: var(--light-color);
+    }
+
+    h4, p, a{
+        padding: 10px;
         padding-left: 15px;
         display: block;
         height: fit-content;
-        background-color: white;
-        border-radius: 5px;
-        margin-bottom: 15px;
+        background-color: var(--light-color);
+        border: .1rem solid var(--green-brown);
     }
+    
+    h4{
+        border-bottom: .1rem solid var(--light-color);
+    }
+}
 }

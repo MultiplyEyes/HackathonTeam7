@@ -1,8 +1,9 @@
-var lijst = document.querySelector("#demo");
-var baseURL = "https://fdnd.directus.app/items/women_in_tech";
-var response = await fetch(baseURL);
-var womenData = await response.json();
-var women = womenData.data;
+let lijst = document.querySelector("#demo");
+let baseURL = "https://fdnd.directus.app/items/women_in_tech";
+console.log(baseURL);
+let response = await fetch(baseURL);
+let womenData = await response.json();
+let women = womenData.data;
 
 const demo = document.getElementById('demo');
 

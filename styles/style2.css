@@ -34,6 +34,7 @@
   --green-brown: #674824;
   --accent-color: pink;
   --light-color: #F7F2EC;
+  --dark-color: black;
   --shadow-card: rgb(75, 51, 23, 0.24);
 
   --padding-card: .8rem 1rem;
@@ -41,6 +42,8 @@
   --wasa: "Wasa", Arial, Helvetica, sans-serif;
   --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
   --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
+
+
 }
 
 * {
@@ -52,6 +55,7 @@
 /* /////////////////////////// */
 /* 🫰🏼🫰🏼🫰🏼 TEXT FORMATTING 🫰🏼🫰🏼🫰🏼 */
 /* /////////////////////////// */
+
 
 h1 {
   font-family: var(--wasa);
@@ -84,6 +88,8 @@ a {
 :root {
   --dark-color: black;
 }
+=======
+
 
 
 /* //////////////// */
@@ -351,6 +357,7 @@ li.name {
     display: block;
   }
 
+
   li.period {
     display: flex;
     padding: 0 0 1rem 0;
@@ -359,3 +366,13 @@ li.name {
 }
 }
 }
+=======
+li:has(+ li.snapped) {
+  padding-right: 10px;
+}
+
+li.snapped + li {
+  padding-left: 10px;
+}
+
+

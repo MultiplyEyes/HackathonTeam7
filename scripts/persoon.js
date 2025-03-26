@@ -13,9 +13,7 @@ var womenData = await response.json();
 var woman = womenData.data;
 
 let womenHTML = `
-        <header>
-                <h1>${woman.name}</h1>
-        </header>
+        <h1>${woman.name}</h1>
         <div id="picture">
                 <figure>
                         <img src=" https://fdnd.directus.app/assets/${woman.image}" alt="Image 1">
@@ -24,7 +22,7 @@ let womenHTML = `
                         <h2>${woman.short_name}</h2>
                 </div>
         </div>
-        <div>
+        <div id="Croc">
                 <h4>Tagline</h4>                
                 <p>${woman.tagline}</p>
                 <h4>Period</h4>

@@ -1,5 +1,38 @@
 
 
+@font-face {
+    font-family: "Wasa" ;
+    src: url(./font/Wasa\ Variable\ Trial.ttf);
+}
+/* 🔗 SOURCE: https://typefaces.pizza/type/wasa */
+  
+@font-face {
+    font-family: "GT Haptic" ;
+    src: url(./font/Koba\ Furniture\ Haptik\ Font.otf);
+}
+/* 🔗 SOURCE: https://www.grillitype.com/typeface/gt-haptik */
+  
+@font-face {
+    font-family: "Syne mono" ;
+    src: url(./font/SyneMono-Regular.ttf);
+}
+/* 🔗 SOURCE: https://fonts.google.com/specimen/Syne+Mono */
+
+:root {
+    --color-header-background: #19130e;
+    --color-ofwhite: #f7f8f7;
+  
+    --green-brown: #674824;
+    --light-color: #F7F2EC;
+    --shadow-card: rgb(75, 51, 23, 0.24);
+  
+    --padding-card: .8rem 1rem;
+  
+    --wasa: "Wasa", Arial, Helvetica, sans-serif;
+    --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
+    --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;

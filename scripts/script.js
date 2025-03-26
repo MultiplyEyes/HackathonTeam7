@@ -31,7 +31,7 @@ const loadMoreItems = (count = 10) => {
     const fragment = document.createDocumentFragment();
     shuffledWomen.forEach(woman => {
         let womenHTML = `
-                        <li >
+                        <li>
                             <a href=persoon.html?id=${woman.id}>
                                 <ul class="card" style="background-image: url('https://fdnd.directus.app/assets/${woman.image}');">
                                     <li class="name">

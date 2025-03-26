@@ -347,3 +347,11 @@ li {
   }
 }
 
+li:has(+ li.snapped) {
+  padding-right: 10px;
+}
+
+li.snapped + li {
+  padding-left: 10px;
+}
+

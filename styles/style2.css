@@ -2,11 +2,21 @@
 /* 🎞️🎞️🎞️ FONTFACES 🎞️🎞️🎞️ */
 /* ///////////////////// */
 
-@font-face {
+/* @font-face {
   font-family: "Wasa" ;
   src: url(./font/Wasa\ Variable\ Trial.ttf);
-}
+} */
 /* 🔗 SOURCE: https://typefaces.pizza/type/wasa */
+
+@font-face {
+  font-family: "Megazoid regular" ;
+  src: url(/fonts/Megazoid-Regular.woff);
+}
+
+@font-face {
+  font-family: "Megazoid shadow" ;
+  src: url(/fonts/Megazoid-ShadeLeft.woff);
+}
 
 @font-face {
   font-family: "GT Haptic" ;
@@ -40,7 +50,10 @@
 
   --padding-card: .8rem 1rem;
 
-  --wasa: "Wasa", Arial, Helvetica, sans-serif;
+  --megazoid: "Megazoid regular", Arial, Helvetica, sans-serif;
+  --megazoid-shadow: "Megazoid shadow", Arial, Helvetica, sans-serif;
+
+  /* --wasa: "Wasa", Arial, Helvetica, sans-serif; */
   --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
   --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
 
@@ -58,8 +71,20 @@
 
 
 h1 {
-  font-family: var(--wasa);
-  color: var(--green-brown);
+  font-family: var(--megazoid);
+  font-size: 1rem;
+}
+
+h2 {
+  font-family: var(--megazoid);
+  font-size: 1rem;
+
+}
+
+h3 {
+  font-family: var(--megazoid-shadow);
+  font-size: 1rem;
+
 }
 
 p {
@@ -90,6 +115,7 @@ a {
 
 body {
   margin: 0;
+  color: var(--green-brown);
 
   display: grid;
   grid-template-columns: 1fr 10fr;
@@ -106,8 +132,8 @@ body {
 header {
   display: grid;
   /* justify-items: center; */
-  width: 8vw;
-  max-width: 10vw;
+  width: clamp(3rem, 1.9565rem + 5.2174vw, 6rem);;
+  /* max-width: 10vw; */
   height: 100vh;
 
   background-color: var(--light-color);
@@ -358,7 +384,7 @@ li.name {
 }
 }
 }
-=======
+
 li:has(+ li.snapped) {
   padding-right: 10px;
 }

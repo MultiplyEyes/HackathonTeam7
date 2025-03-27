@@ -147,6 +147,7 @@ body{
                 display: grid;
                 grid-row: inherit;
                 justify-content: space-evenly;
+                padding-top: 50px;
 
                 h2{
                     writing-mode: vertical-rl;

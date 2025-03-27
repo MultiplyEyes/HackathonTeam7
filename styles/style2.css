@@ -78,16 +78,26 @@ h1 {
 h2 {
   font-family: var(--megazoid);
   font-size:  clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
+  transform: rotate(-3deg);
+  color: var(--light-color);
+  padding: 1rem 0 0 0;
 
 }
 
 h3 {
   font-family: var(--megazoid-shadow);
   font-size:  clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
+  transform: rotate(-3deg);
+  color: var(--green-brown);
+  padding: 1rem 0 0 0;
+  position: absolute;
+  z-index: -1;
+  top: 0%;
 }
 
 p {
   font-size: clamp(0.5rem, 0.3261rem + 0.8696vw, 1rem);
+  padding: 0 0 1rem 0;
 }
 
 a {

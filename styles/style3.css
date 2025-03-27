@@ -1,26 +1,34 @@
-
-
 /* ///////////////////// */
 /* 🎞️🎞️🎞️ FONTFACES 🎞️🎞️🎞️ */
 /* ///////////////////// */
 
+/* @font-face {
+  font-family: "Wasa" ;
+  src: url(./font/Wasa\ Variable\ Trial.ttf);
+} */
+/* 🔗 SOURCE: https://typefaces.pizza/type/wasa */
+
 @font-face {
-    font-family: "Wasa" ;
-    src: url(./font/Wasa\ Variable\ Trial.ttf);
-  }
-  /* 🔗 SOURCE: https://typefaces.pizza/type/wasa */
-  
-  @font-face {
-    font-family: "GT Haptic" ;
-    src: url(./font/Koba\ Furniture\ Haptik\ Font.otf);
-  }
-  /* 🔗 SOURCE: https://www.grillitype.com/typeface/gt-haptik */
-  
-  @font-face {
-    font-family: "Syne mono" ;
-    src: url(./font/SyneMono-Regular.ttf);
-  }
-  /* 🔗 SOURCE: https://fonts.google.com/specimen/Syne+Mono */
+  font-family: "Megazoid regular" ;
+  src: url(/fonts/Megazoid-Regular.woff);
+}
+
+@font-face {
+  font-family: "Megazoid shadow" ;
+  src: url(/fonts/Megazoid-ShadeLeft.woff);
+}
+
+@font-face {
+  font-family: "GT Haptic" ;
+  src: url(./font/Koba\ Furniture\ Haptik\ Font.otf);
+}
+/* 🔗 SOURCE: https://www.grillitype.com/typeface/gt-haptik */
+
+@font-face {
+  font-family: "Syne mono" ;
+  src: url(./font/SyneMono-Regular.ttf);
+}
+/* 🔗 SOURCE: https://fonts.google.com/specimen/Syne+Mono */
 
   
   /* //////////////// */
@@ -59,10 +67,15 @@
     --shadow-card: rgb(75, 51, 23, 0.24);
   
     --padding-card: .8rem 1rem;
+
+    --max-width: 8vw;
   
     --wasa: "Wasa", Arial, Helvetica, sans-serif;
     --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
     --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
+    
+  --megazoid: "Megazoid regular", Arial, Helvetica, sans-serif;
+  --megazoid-shadow: "Megazoid shadow", Arial, Helvetica, sans-serif;
   
     --total-imgs: 50;
 	--images-per-row: 8;
@@ -81,12 +94,40 @@
   /* /////////////////////////// */
   /* 🫰🏼🫰🏼🫰🏼 TEXT FORMATTING 🫰🏼🫰🏼🫰🏼 */
   /* /////////////////////////// */
-  
+
+
   
   h1 {
-    font-family: var(--wasa);
-    color: var(--color-header-background);
+    writing-mode: vertical-rl;
+    font-family: var(--megazoid);
+    font-size: 2rem;
   }
+
+  h2 {
+    font-family: var(--megazoid);
+    font-size:  clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
+    transform: rotate(-3deg);
+    color: var(--light-color);
+    max-width: 500px;
+  
+  }
+  
+  h3 {
+    font-family: var(--megazoid-shadow);
+    font-size:  clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
+    transform: rotate(-3deg);
+    color: var(--color-header-background);
+    padding: 1rem 0 0 0;
+    position: absolute;
+
+    z-index: -1;
+    top: 0%;
+  }
+  
+  p {
+    font-size: clamp(0.5rem, 0.3261rem + 0.8696vw, 1rem);
+  }
+  
   
   p {
     font-size: 1rem;
@@ -142,9 +183,8 @@
   header {
     display: grid;
     /* justify-items: center; */
-    width: 8vw;
-    max-width: 10vw;
     height: 100vh;
+
   
     background-color: var(--light-color);
     border-right: .1rem solid var(--green-brown) ;
@@ -158,7 +198,7 @@
   .menu {
     width: 100%;
     height: 97%;  
-  
+    min-width: var(--max-width);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -220,21 +260,23 @@
         width: 92vw;
         height: 100vh;
       
-
+        >ul::-webkit-scrollbar {
+          display: none;
+        }
       
       >ul {
         overflow: auto;
         display: grid;
         grid-auto-flow: dense;
-        grid-template-columns: repeat(10, minmax(26vw, 1fr));
-        grid-template-rows: repeat(auto-fill, minmax(39vw, 1fr));
+        grid-template-columns: repeat(10, minmax(clamp(15rem, 26vw, 30rem), 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(clamp(15rem, 39vw, 30rem), 1fr));
         gap: 2rem;
         padding: 1rem;
         height: 100vh;
         width: 100%;
         scroll-snap-type: both mandatory;
         scroll-behavior: smooth;
-        
+
         >li:has(a:not('display:block;')) {
           display: none;
         }
@@ -259,12 +301,24 @@
         
 
             @supports (container-type: scroll-state) {
-                *:not(h2) {
-                transition: transform 300ms ease-in-out;
+                * {
+                transition: .3s ease-in-out;
 
                   @container not scroll-state(snapped) {
-                   transform: scale(.5);
-                   box-shadow: 0px 0px 0px oklch(70% 70% var(--hue));
+
+                   
+                    animation: upAndDown infinite ease-in-out;
+                    animation-duration: clamp( 3s, calc(var(--sibling-index)*1s/8),10s);
+                    scale: .5;
+
+                    h2, h3 {
+                      scale: .1;
+                    }
+
+                    ul {
+                      animation: lights 3s infinite ease-in-out;
+
+                    }
                   }
 
                   @container scroll-state(snapped) {
@@ -273,7 +327,15 @@
                         /* translateX(1rem) translateY(1rem) */
                         z-index: 10;
                         /* box-shadow: var(--shadow-card) 8px 8px 4px; */
-                    
+                        scale: 1;
+
+                      p, h2, h3 {
+                        box-shadow: 0px 0px 0px oklch(70% 70% var(--hue));
+                      }
+
+                      ul {
+                        box-shadow: 0px 0px 0px oklch(70% 70% var(--hue));
+                       }
 
 
                     }
@@ -431,3 +493,32 @@ li.name {
 		z-index: 1;
 	}
 }
+
+@keyframes upAndDown {
+  0% {
+    transform: 
+      translateY(0)
+  }
+  50% {
+    transform: 
+      translateY(2vh)
+  }
+  100% {
+    transform: 
+      translateY(0)
+  }
+  
+}
+
+@keyframes lights {
+  0% {
+    box-shadow: 0px 0px 20px oklch(70% 70% var(--hue));
+  }
+  50% {
+    box-shadow: 0px 0px 2px oklch(70% 70% var(--hue));
+  }
+  100% {
+    box-shadow: 0px 0px 20px oklch(70% 70% var(--hue));
+  }
+}
+

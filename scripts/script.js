@@ -32,25 +32,28 @@ const loadMoreItems = (count = 10) => {
     shuffledWomen.forEach(woman => {
         let womenHTML = `
                         <li >
-                            <a href=persoon.html?id=${woman.id}>
+                            
                                 <ul class="card" style="background-image: url('https://fdnd.directus.app/assets/${woman.image}');">
                                     <li class="name">
-                                        <h2>${woman.name}</h2>
+                                        <a href=persoon.html?id=${woman.id}><h2>${woman.name}</h2></a>
                                         <h3>${woman.name}</h3>
                                     </li>
                                     <li class="color">
                                     </li>
                                     <li class="tagline">
-                                        <p>${woman.tagline}</p>               
+                                        <a href=persoon.html?id=${woman.id}><p>${woman.tagline}</p></a>             
                                     </li>
                                     <li class="period">
-                                        <p>${woman.period}</p>
-                                        <p>❤️‍🔥</p> 
+                                        <a href=persoon.html?id=${woman.id}><p>${woman.period}</p></a>
+                                        <select>
+                                            <option value="heart">❤️‍🔥</option>
+                                            <option value="award">🏆</option>
+                                        </select>
                                     </li>
                                     <li class="gradient">
                                     </li>
                                 </ul>
-                            </a>
+
                         </li>
                         `;
         const tempDiv = document.createElement('div');

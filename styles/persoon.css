@@ -42,41 +42,17 @@
     padding: 0;
 }
 
-
+body{
+    clip: auto;
+    overflow-x: hidden;
+    display: grid;
+}
 
 h1{
     margin-top: 10px;
     padding:.5em;
     border: solid var(--green-brown);
     border-bottom: var(--light-color);
-}
-
-#picture{
-    display: flex;
-    background-color: var(--light-color);
-    margin-bottom: 10px;
-    
-    border: solid var(--green-brown);
-    border-top: var(--light-color);
-
-    
-
-    div{
-        padding-top: 50px;
-        /* width: 10vw; */
-        background-color: var(--light-color);
-
-        
-        h2{
-            writing-mode: vertical-rl;
-            padding:.5em;
-        }
-    }
-
-    img{
-        width: 100%;
-        height: fit-content;
-    }
 }
 
 
@@ -95,35 +71,109 @@ h1{
 
 
 
-section{
-    --hue: calc(var(--sibling-index) * 5); 
-    background-color: oklch(70% 70% var(--hue));
-    max-width: 100%;
-
-    padding: 0 30vw;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    p, a{
-        margin-bottom: 15px;
-    }
-
-    h1{
-        background-color: var(--light-color);
-    }
-
-    h4, p, a{
-        padding: 10px;
-        padding-left: 15px;
+    section{
+        --hue: calc(var(--sibling-index) * 5); 
+        background-color: oklch(70% 70% var(--hue));
+        max-width: 100%;
+        padding: 0 5vw;
         display: block;
-        height: fit-content;
-        background-color: var(--light-color);
-        border: .1rem solid var(--green-brown);
-    }
-    
-    h4{
-        border-bottom: .1rem solid var(--light-color);
+        margin-left: auto;
+        margin-right: auto;
+        
+
+
+        @media screen and (min-width:950px) {
+            padding: 0 30vw;
+        }
+        
+
+        p, a{
+            margin-bottom: 15px;
+        }
+
+
+        h1{
+            background-color: var(--light-color);
+        }
+
+        h4, p, a{
+            padding: 10px;
+            padding-left: 15px;
+            display: block;
+            height: fit-content;
+            background-color: var(--light-color);
+            opacity: 0.8;
+            border: .1rem solid var(--green-brown);
+            animation: hithere 0.5s linear;
+
+            &:hover{
+                opacity: 1;
+            }
+        }
+
+        a:hover{
+            &::after{
+                content: "👍";
+            }
+        }
+        
+        h4{
+            border-bottom: .1rem solid var(--light-color);
+        }
+
+        #picture{
+            display: flex;
+            background-color: var(--light-color);
+            margin-bottom: 10px;
+            
+            border: solid var(--green-brown);
+            border-top: var(--light-color);
+
+            div{
+                padding-top: 50px;
+                width: 10vw;
+                background-color: var(--light-color);
+                display: flex;
+                justify-content: center;
+
+                h2{
+                    writing-mode: vertical-rl;
+                }
+            }
+            figure{
+                border-top: solid var(--green-brown);
+                border-right: solid var(--green-brown);
+            }
+
+            img{
+                width: 100%;
+                height: fit-content;
+                transition: 0.5s;
+                opacity: 0.8;
+
+                &:hover{
+                    filter: contrast(150%);
+                }
+            }
+        }
     }
 }
+@keyframes hithere {
+    0% {
+        opacity: 0;
+        transform: translateX(2000px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateX(-30px);
+    }
+
+    80% { 
+        transform: translateX(10px); 
+    }
+
+    100% { 
+        transform: translateX(0); 
+    }
 }

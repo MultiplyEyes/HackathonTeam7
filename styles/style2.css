@@ -79,14 +79,14 @@ h2 {
   font-size: clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
   transform: rotate(-3deg);
   color: var(--light-color);
-  padding: 1rem 0 0 0;
+  padding: .5rem 0 0 0;
 }
 
 h3 {
   font-family: var(--megazoid-shadow);
   font-size:  clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
   transform: rotate(-3deg);
-  padding: 1rem 0 0 0;
+  padding: .5rem 0 0 0;
   position: absolute;
   z-index: -1;
   top: 0%;
@@ -94,7 +94,6 @@ h3 {
 
 p {
   font-size: clamp(0.5rem, 0.3261rem + 0.8696vw, 1rem);
-  padding: 0 0 1rem 0;
 }
 
 a {
@@ -221,18 +220,17 @@ main {
       overflow: auto;
       display: grid;
       grid-auto-flow: dense; /* Allow grid to expand both horizontally and vertically */
-      grid-template-columns: repeat(50, 20vw); /* Set column width */
-      grid-template-rows: repeat(auto-fill, 30vw); /* Set row height */
+      grid-template-columns: repeat(50, clamp(9rem, 6.7391rem + 11.3043vw, 15.5rem)); /* Set column width */
+      grid-template-rows: repeat(auto-fill, clamp(14rem, 10.7826rem + 16.087vw, 23.25rem)); /* Set row height */
       gap: 1rem;
       padding: 1rem;
       
       overscroll-behavior: contain;
       scroll-behavior: smooth;
-      border: 1px solid var(--dark-color);
 
       >li {
         scroll-snap-align: center;
-        box-shadow: var(--dark-color) 0 0 0 1px;
+        /* box-shadow: var(--dark-color) 0 0 0 1px; */
       }
       >li:last-of-type{
         scroll-snap-align: end;
@@ -270,11 +268,8 @@ main {
     width: 100%;
     height: 100%;
 
-
-
     margin: 2rem;
     padding: var(--padding-card);
-
 
     /* position: absolute;
     z-index: 0; */
@@ -283,8 +278,6 @@ main {
     flex-direction: column;
     justify-content: end;
     gap: .5rem;
-
-    font-family: var(--syne-mono);
 
     background-color: black;
     background-image: url(/Ana\ Tudor\ 800x800.jpg);
@@ -306,14 +299,11 @@ main {
         align-self: center;
     }
 
-
-  li.color {
-      width: auto;
-      height: auto;
-
-    li.name h2 {
-        transform: rotate(-3deg);
-        font-family: var(--wasa);
+    li.name {
+      flex-grow: 1;
+      font-family: var(--wasa);
+      color: var(--green-brown);
+      padding: .8rem 0 0 0;
     }
 
     li.color {
@@ -331,11 +321,10 @@ main {
     }
 
     li.period {
+        display: flex;
+        justify-content: space-between;
         font-family: var(--syne-mono);
-    }
-
-    li:nth-of-type(n + 3) {
-        display: none;
+        padding: 0 0 1rem 0;
     }
 
     li.gradient {
@@ -348,22 +337,18 @@ main {
         border-radius: 0 0 .5rem .5rem;
 
         background-image: 
-        linear-gradient(
+            linear-gradient(
             transparent 0%,
             var(--accent-color) 80%
         );
 
         transition: transform 300ms ease-in-out;
-    }
-  }
-    
-  li.name {
-    flex-grow: 1;
-    font-family: var(--wasa);
-    color: var(--green-brown);
-    padding: .8rem 0 0 0;
+      }
   }
 
+  li:nth-of-type(3 + n) {
+    display: none;
+  }
 }
   
 li.name {
@@ -380,10 +365,6 @@ li.name {
   transition: transform 300ms ease-in-out;
   z-index: 10;
 
-
-  li {
-    
-  }
   .snapped {
     transform: scale(1.3);
     /* translateX(1rem) translateY(1rem) */
@@ -414,7 +395,6 @@ li.name {
       display: block;
     }
 
-
     li.period {
       display: flex;
       padding: 0 0 1rem 0;
@@ -426,11 +406,9 @@ li.name {
 
 
 li:has(+ li.snapped) {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 li.snapped + li {
-  padding-left: 10px;
+    padding-left: 10px;
 }
-
-

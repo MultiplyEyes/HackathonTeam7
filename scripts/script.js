@@ -1,4 +1,3 @@
-let lijst = document.querySelector("#demo");
 let baseURL = "https://fdnd.directus.app/items/women_in_tech";
 console.log(baseURL);
 let response = await fetch(baseURL);

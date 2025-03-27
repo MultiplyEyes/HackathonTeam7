@@ -32,9 +32,8 @@
     --wasa: "Wasa", Arial, Helvetica, sans-serif;
     --gt-haptic: "GT Haptic", Arial, Helvetica, sans-serif;
     --syne-mono: "Syne mono", Arial, Helvetica, sans-serif;
-
-    
-
+    --megazoid: "Megazoid regular", Arial, Helvetica, sans-serif;
+    --megazoid-shadow: "Megazoid shadow", Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -46,13 +45,6 @@ body{
     clip: auto;
     overflow-x: hidden;
     display: grid;
-}
-
-h1{
-    margin-top: 10px;
-    padding:.5em;
-    border: solid var(--green-brown);
-    border-bottom: var(--light-color);
 }
 
 
@@ -89,11 +81,22 @@ h1{
 
         p, a{
             margin-bottom: 15px;
+            border-bottom-left-radius: .6rem;
+            border-bottom-right-radius: .6rem;
         }
 
 
         h1{
             background-color: var(--light-color);
+            margin-top: 10px;
+            padding:.5em;
+            border: solid var(--green-brown);
+            border-bottom: var(--light-color);
+            
+            font-family: var(----megazoid-shadow);
+
+            border-top-left-radius: .6rem;
+            border-top-right-radius: .6rem;
         }
 
         h4, p, a{
@@ -105,13 +108,14 @@ h1{
             opacity: 0.8;
             border: .1rem solid var(--green-brown);
             animation: hithere 0.5s linear;
+            
 
             &:hover{
                 opacity: 1;
             }
         }
 
-        a:hover{
+        a:not(.close):hover{
             &::after{
                 content: "👍";
             }
@@ -119,6 +123,8 @@ h1{
         
         h4{
             border-bottom: .1rem solid var(--light-color);
+            border-top-left-radius: .6rem;
+            border-top-right-radius: .6rem;
         }
 
         #picture{
@@ -129,12 +135,14 @@ h1{
             border: solid var(--green-brown);
             border-top: var(--light-color);
 
+            border-bottom-left-radius: .6rem;
+            border-bottom-right-radius: .6rem;
+
             div{
-                padding-top: 50px;
                 width: 10vw;
-                background-color: var(--light-color);
-                display: flex;
-                justify-content: center;
+                display: grid;
+                grid-row: inherit;
+                justify-content: space-evenly;
 
                 h2{
                     writing-mode: vertical-rl;
@@ -158,6 +166,48 @@ h1{
         }
     }
 }
+
+a.nav-link:link
+{
+   text-decoration: none;
+}
+a.nav-link:visited
+{
+   text-decoration: none;
+}
+a.nav-link:hover
+{
+   text-decoration: none;
+}
+a.nav-link:active
+{
+   text-decoration: none;
+}
+
+.close{
+    border: none;
+    animation: none;
+    position: absolute;
+    top: .1rem;
+    left: .1rem;
+    z-index: 10;
+    @media screen and (min-width:950px) {
+        top: .5rem;
+        left: .5rem;
+    }
+    
+    &::after{
+        display: inline-block;
+        color: var(--color-header-background);
+        content: "\00d7";
+        font-size:25px;
+
+        @media screen and (min-width:950px) {
+            font-size: 40px;
+        }
+    }
+}
+
 @keyframes hithere {
     0% {
         opacity: 0;

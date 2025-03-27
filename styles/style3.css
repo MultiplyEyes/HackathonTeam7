@@ -305,7 +305,7 @@
                 transition: .3s ease-in-out;
 
                   @container not scroll-state(snapped) {
-
+                    box-shadow: 0px 0px 0px oklch(70% 70% var(--hue));
                    
                     animation: upAndDown infinite ease-in-out;
                     animation-duration: clamp( 3s, calc(var(--sibling-index)*1s/8),10s);

@@ -10,10 +10,7 @@ const demo = document.getElementById('demo');
 // Add smooth scrolling CSS
 lijst.style.scrollBehavior = 'smooth';
 
-lijst.onscrollsnapchange = event => {
-    lijst.querySelector(':scope .snapped')?.classList.remove('snapped')
-    event.snapTargetInline.classList.add('snapped')
-};
+
 
 // Function to shuffle an array
 const shuffleArray = (array) => {

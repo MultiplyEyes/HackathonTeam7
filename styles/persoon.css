@@ -97,6 +97,7 @@ section{
     --hue: calc(var(--sibling-index) * 5); 
     background-color: oklch(70% 70% var(--hue));
     max-width: 100%;
+    height: 100vh;
     padding: 0 30vw;
     display: block;
     margin-left: auto;

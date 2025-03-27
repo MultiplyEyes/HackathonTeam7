@@ -363,13 +363,100 @@ li.name {
       width: 80%;
     }
 
-    p:last-of-type {
-      font-size: .5rem;
+    select {
+      appearance: none;
+      @supports (appearance: base-select) {
+        &,
+        &::picker(select) {
+          appearance: base-select;
+        }
+      }
+    }
+
+    select {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      /* width: .5rem;
+      height: .5rem; */
+      
+      /* 🔗 SOURCE: https://utilitybend.com/blog/the-customizable-select-part-one-history-trickery-and-styling-the-select-with-css */
+      @supports (appearance: base-select) {
+        padding-inline: 10px;
+        background-image: none;
+        &::picker-icon {
+          display: none;
+        }
+
+        &::picker(select) {
+          padding: 0;
+          margin-top: 5px;
+          border: none;
+          background: var(--light-color);
+          border-radius: 5px;
+    
+          opacity: 0;
+          height: 0;
+          overflow: clip;
+          transition: height 0.5s ease-out, opacity 0.5s ease-out, overlay 0.5s,
+            display 0.5s;
+    
+          transition-behavior: allow-discrete;
+        }
+        &:open::picker(select) {
+          opacity: 1;
+          height: calc-size(auto, size);
+          overflow: auto;
+          @starting-style {
+            opacity: 0;
+            height: 0;
+          }
+        }
+        option {
+          padding: 8px;
+          width: .5rem;
+          height: .5rem;
+          cursor: pointer;
+          transition-property: color, background;
+          transition-duration: 0.2s;
+          transition-timing-function: ease-out;
+          &:where(:hover, :focus, :active) {
+            background: var(--green-brown);
+          }
+          &:checked {
+            background: var(--green-brown);
+          }
+          &::checkmark {
+            display: none;
+          }
+          &:first-child {
+            border: 0;
+          }
+        }
+      }
     }
   }
 }
+
+  /* select:has(value="award") ul.card {
+    border: 3px solid pink;
+  } */
+
 }
 
+html:has([value="award"]:checked) {
+  .card {
+    border: var(--light-color);
+  }
+  
+  .card::after {
+    display: block;
+  }
+
+}
 
   li:has(+ li.snapped) {
     padding-right: 10px;
@@ -377,4 +464,23 @@ li.name {
 
   li.snapped + li {
     padding-left: 10px;
+  }
+
+  .card  {
+    position: relative;
+  }
+
+  .card::after {
+    content:"";
+    position: absolute;
+
+    inset:-.5em;
+
+    background-image: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);;
+
+    z-index: -1;
+
+    border-radius:.8em;
+    display: none;
   }

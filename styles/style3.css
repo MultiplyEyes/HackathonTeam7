@@ -85,7 +85,7 @@
   
   h1 {
     font-family: var(--wasa);
-    color: var(--green-brown);
+    color: var(--color-header-background);
   }
   
   p {
@@ -96,7 +96,7 @@
     color: var(--green-brown);
     text-decoration: none;
     --hue: calc(var(--sibling-index) * 5); 
-    box-shadow: 0px 0px 20px oklch(70% 70% var(--hue));
+
   
     &:visited {
       color: var(--green-brown);
@@ -180,7 +180,7 @@
   }
   
   svg {
-    color: var(--green-brown);
+    fill: var(--color-header-background);
   }
   
 
@@ -264,10 +264,12 @@
 
                   @container not scroll-state(snapped) {
                    transform: scale(.5);
+                   box-shadow: 0px 0px 0px oklch(70% 70% var(--hue));
                   }
 
                   @container scroll-state(snapped) {
                         display: flex !important;
+                        box-shadow: 0px 0px 20px oklch(70% 70% var(--hue));
                         /* translateX(1rem) translateY(1rem) */
                         z-index: 10;
                         /* box-shadow: var(--shadow-card) 8px 8px 4px; */

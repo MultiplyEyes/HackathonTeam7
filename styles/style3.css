@@ -276,9 +276,12 @@
         width: 100%;
         scroll-snap-type: both mandatory;
         scroll-behavior: smooth;
+        overscroll-behavior-x: contain;
 
-        >li:has(a:not('display:block;')) {
-          display: none;
+
+
+        >li:has(li:not("display: none;")) + li a {
+          scale: .8;
         }
 
         >li {
@@ -297,11 +300,12 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+            overscroll-behavior: contain;
 
-        
+
 
             @supports (container-type: scroll-state) {
-                * {
+                a {
                 transition: .3s ease-in-out;
 
                   @container not scroll-state(snapped) {

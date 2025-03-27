@@ -10,8 +10,6 @@ const demo = document.getElementById('demo');
 // Add smooth scrolling CSS
 lijst.style.scrollBehavior = 'smooth';
 
-
-
 // Function to shuffle an array
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -21,10 +19,17 @@ const shuffleArray = (array) => {
     return array;
 };
 
+// Debounce function to limit scroll event calls
+const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), delay);
+    };
+};
 
 // Infinite scrolling logic
 const loadMoreItems = (count = 10) => {
-    // Shuffle the women array before appending
     const shuffledWomen = shuffleArray([...women]).slice(0, count);
     const fragment = document.createDocumentFragment();
     shuffledWomen.forEach(woman => {
@@ -50,6 +55,7 @@ const loadMoreItems = (count = 10) => {
     });
     lijst.appendChild(fragment);
 };
+
 // IntersectionObserver to remove items that are not visible
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -62,11 +68,12 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0
 });
 
-demo.addEventListener('scroll', () => {
+// Debounced scroll event listener
+demo.addEventListener('scroll', debounce(() => {
     if (demo.scrollTop + demo.clientHeight >= demo.scrollHeight - 100 || demo.scrollLeft + demo.clientWidth >= demo.scrollWidth - 100) {
         loadMoreItems();
     }
-});
+}, 200));
 
 // Observe all list items
 const observeListItems = () => {

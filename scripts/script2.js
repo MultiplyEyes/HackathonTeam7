@@ -35,7 +35,10 @@ const loadMoreItems = (count = 10) => {
                 <li class="card-item">
                     <a href="persoon.html?id=${woman.id}" style="--sibling-index:${woman.id}">
                         <ul class="card" style="background-image: url('https://fdnd.directus.app/assets/${woman.image}')">
-                            <li class="name"><h2>${woman.name}</h2></li>
+                            <li class="name">
+                            <h2>${woman.name}</h2>
+                            <h3>${woman.name}</h3>
+                            </li>
                             <li class="color"></li>
                             <li class="tagline"><p>${woman.tagline}</p></li>
                             <li class="period"><p>${woman.period}</p></li>

@@ -76,7 +76,7 @@ h1 {
 
 h2 {
   font-family: var(--megazoid);
-  font-size:  clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
+  font-size: clamp(1rem, 0.6522rem + 1.7391vw, 2rem);
   transform: rotate(-3deg);
   color: var(--light-color);
   padding: 1rem 0 0 0;

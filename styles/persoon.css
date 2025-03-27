@@ -1,18 +1,22 @@
 
 
 @font-face {
-    font-family: "Wasa" ;
-    src: url(./font/Wasa\ Variable\ Trial.ttf);
-}
-/* 🔗 SOURCE: https://typefaces.pizza/type/wasa */
+    font-family: "Megazoid regular" ;
+    src: url(/fonts/Megazoid-Regular.woff);
+  }
   
-@font-face {
+  @font-face {
+    font-family: "Megazoid shadow" ;
+    src: url(/fonts/Megazoid-ShadeLeft.woff);
+  }
+  
+  @font-face {
     font-family: "GT Haptic" ;
     src: url(./font/Koba\ Furniture\ Haptik\ Font.otf);
-}
-/* 🔗 SOURCE: https://www.grillitype.com/typeface/gt-haptik */
+  }
+  /* 🔗 SOURCE: https://www.grillitype.com/typeface/gt-haptik */
   
-@font-face {
+  @font-face {
     font-family: "Syne mono" ;
     src: url(./font/SyneMono-Regular.ttf);
 }
@@ -93,7 +97,7 @@ body{
             border: solid var(--green-brown);
             border-bottom: var(--light-color);
             
-            font-family: var(----megazoid-shadow);
+            font-family: var(--megazoid);
 
             border-top-left-radius: .6rem;
             border-top-right-radius: .6rem;

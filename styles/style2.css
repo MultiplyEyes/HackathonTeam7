@@ -467,11 +467,11 @@ html:has([value="award"]:checked) {
     padding-left: 10px;
   }
 
-  .card  {
+  .snapped  {
     position: relative;
   }
 
-  .card::after {
+.snapped::after {
     content:"";
     position: absolute;
 
